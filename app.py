@@ -113,13 +113,13 @@ def setcolorful():
         messagebox.showerror('ERROR', 'Something went wrong!')
 
 def dropdown(anoption):
-    if anoption == 'per minute':
-        return 5.0
+    if anoption == 'per 10 minutes':
+        return 600.0
     elif anoption == 'per 5 minutes':
         return 300.0
     else: 
-        return 600.0 
-        
+        return 60.0 
+          
 # drop-down menu
 
 option = StringVar(app)
@@ -131,25 +131,29 @@ drop_down_menu.place(x=590, y=187)
 
 interval_timer = RepeatedTimer(1.0, setcolorful)
 
+refresh_timer = RepeatedTimer(dropdown(option), lambda: city_output.configure(
+        text=f'Observation: {city_var}. Temperature: {str(cityweather(city_var))} in celcius'))
+
 
 def on_closing():
     if messagebox.askokcancel("Quit", "Do you want to quit? Wallpaper will be set to Default"):
         func.setdefault(default_var)
         if interval_timer.is_running:
             interval_timer.stop()
+            refresh_timer.stop()
         app.destroy()
 
 
 def toAdapt():
     stop_button.place(x=700, y=275)
     interval_timer.start()
-    city_output.configure(
-        text=f'Observation: {city_var}. Temperature: {str(cityweather(city_var))} in celcius')
+    refresh_timer.start()
 
 
 def toStop():
     city_output.configure(text='Adaptation was stopped')
     interval_timer.stop()
+    refresh_timer.stop()
     func.setdefault(default_var)
 
 

@@ -1,7 +1,6 @@
 from threading import Timer
 from weather import cityweather
 from tkinter import _tkinter
-import app
 class RepeatedTimer:
     def __init__(self, interval, function, *args, **kwargs):
         self._timer = None
