@@ -112,10 +112,10 @@ def setcolorful():
     else:
         messagebox.showerror('ERROR', 'Something went wrong!')
 
-def dropdown(option):
-    if option == 'per minute':
-        return 60.0
-    elif option == 'per 5 minutes':
+def dropdown(anoption):
+    if anoption == 'per minute':
+        return 5.0
+    elif anoption == 'per 5 minutes':
         return 300.0
     else: 
         return 600.0 
@@ -129,7 +129,7 @@ drop_down_menu = OptionMenu(
 drop_down_menu.place(x=590, y=187)
 
 
-interval_timer = RepeatedTimer(dropdown(option), setcolorful)
+interval_timer = RepeatedTimer(1.0, setcolorful)
 
 
 def on_closing():
