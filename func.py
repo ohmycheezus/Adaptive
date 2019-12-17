@@ -1,6 +1,6 @@
 import ctypes
 import time
-
+import os 
 
 SPI_GETDESKWALLPAPER = 0x0073
 SPI_SETDESKWALLPAPER = 20
@@ -21,4 +21,6 @@ def setdeskwallpaper(path):
 def setdefault(getdefault):
     ctypes.windll.user32.SystemParametersInfoW(
         SPI_SETDESKWALLPAPER, 0, getdefault, 0)
-    
+
+def direct_name():
+    return os.path.dirname(os.path.abspath(__file__))

@@ -10,7 +10,7 @@ import os
 import pyowm
 import func
 
-
+app_direct = func.direct_name()
 default_var = func.getdefault()
 db = Database('maindata.db')
 
@@ -75,40 +75,40 @@ def select_city(event):
 def setcolorful():
     if round(cityweather(city_var)) <= -15:
         func.setdeskwallpaper(
-            r'C:\Users\George\Desktop\develop\adaptivewp\temperature\-20.jpg')
+            app_direct + r'\temperature\-20.jpg')
     elif round(cityweather(city_var)) <= -10:
         func.setdeskwallpaper(
-            r'C:\Users\George\Desktop\develop\adaptivewp\temperature\-15.jpg')
+            app_direct + r'\temperature\-15.jpg')
     elif round(cityweather(city_var)) <= -5:
         func.setdeskwallpaper(
-            r'C:\Users\George\Desktop\develop\adaptivewp\temperature\-10.jpg')
+            app_direct + r'\temperature\-10.jpg')
     elif round(cityweather(city_var)) <= 0:
         func.setdeskwallpaper(
-            r'C:\Users\George\Desktop\develop\adaptivewp\temperature\-5.jpg')
+            app_direct + r'\temperature\-5.jpg')
     elif round(cityweather(city_var)) <= 5:
         func.setdeskwallpaper(
-            r'C:\Users\George\Desktop\develop\adaptivewp\temperature\0.jpg')
+            app_direct + r'\temperature\0.jpg')
     elif round(cityweather(city_var)) <= 10:
         func.setdeskwallpaper(
-            r'C:\Users\George\Desktop\develop\adaptivewp\temperature\5.jpg')
+            app_direct + r'\temperature\5.jpg')
     elif round(cityweather(city_var)) <= 15:
         func.setdeskwallpaper(
-            r'C:\Users\George\Desktop\develop\adaptivewp\temperature\10.jpg')
+            app_direct + r'\temperature\10.jpg')
     elif round(cityweather(city_var)) <= 20:
         func.setdeskwallpaper(
-            r'C:\Users\George\Desktop\develop\adaptivewp\temperature\15.jpg')
+            app_direct + r'\temperature\15.jpg')
     elif round(cityweather(city_var)) <= 25:
         func.setdeskwallpaper(
-            r'C:\Users\George\Desktop\develop\adaptivewp\temperature\20.jpg')
+            app_direct + r'\temperature\20.jpg')
     elif round(cityweather(city_var)) <= 30:
         func.setdeskwallpaper(
-            r'C:\Users\George\Desktop\develop\adaptivewp\temperature\25.jpg')
+            app_direct + r'\temperature\25.jpg')
     elif round(cityweather(city_var)) <= 35:
         func.setdeskwallpaper(
-            r'C:\Users\George\Desktop\develop\adaptivewp\temperature\30.jpg')
+            app_direct + r'\temperature\30.jpg')
     elif round(cityweather(city_var)) <= 40:
         func.setdeskwallpaper(
-            r'C:\Users\George\Desktop\develop\adaptivewp\temperature\35.jpg')
+            app_direct + r'\temperature\35.jpg')
     else:
         messagebox.showerror('ERROR', 'Something went wrong!')
 
