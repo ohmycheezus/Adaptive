@@ -9,11 +9,13 @@ import webbrowser
 import os
 import pyowm
 import func
+from geoloc import Locator
+
 
 app_direct = func.direct_name()
 default_var = func.getdefault()
 db = Database('maindata.db')
-
+locator = Locator()
 
 app = Tk()
 
@@ -119,7 +121,21 @@ def dropdown(anoption):
         return 300.0
     else: 
         return 60.0 
-          
+
+
+def autoLocate():
+    try:
+        cityweather(locator.autolocation())
+    except:
+        messagebox.showerror('Autodetection Error', 'Sorry, we are unable to determine your location.') 
+    else:
+        city_output.configure(
+        text=f'Observation: {locator.autolocation()}. Temperature: {str(cityweather(locator.autolocation()))} in celcius')
+        adapt_button.place(x=580, y=275)
+        db.insert(locator.autolocation())
+        parts_list.delete(0, END)
+        parts_list.insert(END, (locator.autolocation()))
+        populate_list()        
 # drop-down menu
 
 option = StringVar(app)
@@ -172,8 +188,8 @@ logo_label.place(relx=.58, rely=.038)
 
 
 city_label = Label(
-    app, text='Input your city here: (in format: city,2 capital letters of country)', font=('Robot', 14))
-city_label.place(x=10, y=150)
+    app, text='Input your city here:', font=('Robot', 14))
+city_label.place(x=300, y=150)
 city_text = StringVar()
 city_input = Entry(app, textvariable=city_text)
 city_input.place(x=520, y=155)
@@ -196,7 +212,7 @@ adapt_button = Button(app, text='Adapt', command=toAdapt, fg='white',
                       bg='#428bca', width=5, font=('Consolas', 12), borderwidth=0)
 # city_lists
 
-parts_list = Listbox(app, height=23, width=120)
+parts_list = Listbox(app, height=15, width=120)
 parts_list.place(x=30, y=330)
 parts_list.bind("<<ListboxSelect>>", select_city)
 
@@ -204,12 +220,18 @@ parts_list.bind("<<ListboxSelect>>", select_city)
 
 remove_button = Button(app, text='Remove', command=remove_city,
                        height=2, width=8, bg='#d9534f', fg='white', borderwidth=0)
-remove_button.place(x=690, y=665)
+remove_button.place(x=690, y=535)
 
 # stop button
 
 stop_button = Button(app, text='Stop', command=toStop, borderwidth=0,
                      bg='#d9534f', fg='white', width=5, font=('Consolas', 12))
+
+#Autodetection
+
+detect_button = Button(app, text = 'AUTODETECTION', command = autoLocate, borderwidth = 0, fg = 'white', bg = '#232020', width=15,height = 3, font = ('Consolas', 14))
+detect_button.place(x=340, y=580)
+
 
 # My personalities
 

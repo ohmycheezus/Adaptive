@@ -3,7 +3,7 @@ This is an desktop app that changes your wallpaper image depending on temperatur
 
 ⚠**CAUTION**⚠ This app was tested **only on Windows** and uses celcius (that does not affect functionality!) as output. 
 
-So program is using Python in core, Tkinter as desktop, OpenWeather as temperature info.
+So program is using Python in core, Tkinter as desktop, OpenWeather as temperature info, ipinfo for geolocation.
 
 ## Getting started
 ### 1. Install Python 3+
@@ -25,7 +25,7 @@ To use this app you require to install modules:
 
 In a command prompt or Terminal window you have to type this:
 
-```pip install tkinter Pillow requests pyowm ```
+```pip install tkinter Pillow requests pyowm ipinfo ```
 
 If you want you can made an executable .exe file by https://www.pyinstaller.org to use this program everywhere! 😉
 
@@ -36,7 +36,7 @@ In the same command prompt or Terminal window, type the following, and press ent
 
 ### 5. Start the Adaptation!
 
-- Add a city like in the example: *Los Angeles, US*, *Moscow, RU*, *London, UK*
+- Add a city like in the example: *Los Angeles*, *Moscow*, *London* 
 - Click 'Add' Button
 - Now you see the message and 'Adapt' button. Click it.
 - Enjoy!
