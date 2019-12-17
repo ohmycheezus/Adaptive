@@ -1,7 +1,7 @@
 # adaptive 
 This is an desktop app that changes your wallpaper image depending on temperature in the region you prefer. The app is totally opensource and distributed for free. Will be glad for any contribution! 😇
 
-⚠**CAUTION**⚠ This app works **only on Windows** and uses celcius (that does not affect functionality!) as output.
+⚠**CAUTION**⚠ This app was tested **only on Windows** and uses celcius (that does not affect functionality!) as output. 
 
 So program is using Python in core, Tkinter as desktop, OpenWeather as temperature info.
 
@@ -17,7 +17,7 @@ On https://github.com/Marstheboy/Adaptive, click the green "Clone or Download" b
 
 You may clone it via Bash:
 
-```git clone https://github.com/Marstheboy/adaptive.git ```
+```git clone https://github.com/Marstheboy/Adaptive.git ```
 
 ### 3. Install Dependencies
 
@@ -44,11 +44,11 @@ In the same command prompt or Terminal window, type the following, and press ent
 Click 'Stop' Button or click the cross button of the window.
 
 ## For those interested
-This app is made by George Reutov as his attraction when he was sick and stayed at home all day long.
+This app is made by George Reutov as his attraction when he was sick and stayed at home all day long and now contributed
 
 ## Contact 📧
 My main mail is reutovv7781@gmail.com. If you found bugs or need some help: text me to get more information.
 
 ## License
 
-*adaptive* is under [MIT license](https://github.com/Marstheboy/adaptive/blob/master/LICENSE)
+*Adaptive* is under [MIT license](https://github.com/Marstheboy/Adaptive/blob/master/LICENSE)
