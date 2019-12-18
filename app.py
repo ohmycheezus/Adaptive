@@ -47,7 +47,7 @@ def cityInformation():
     returnCity()
     city_output.configure(
         text=f'Observation: {city_var}. Temperature: {str(cityweather(city_var))} in celcius')
-    adapt_button.place(x=580, y=275)
+    adapt_button.place(x=480, y=275)
 
 
 def weather_now():
@@ -131,7 +131,7 @@ def autoLocate():
     else:
         city_output.configure(
         text=f'Observation: {locator.autolocation()}. Temperature: {str(cityweather(locator.autolocation()))} in celcius')
-        adapt_button.place(x=580, y=275)
+        adapt_button.place(x=480, y=275)
         db.insert(locator.autolocation())
         parts_list.delete(0, END)
         parts_list.insert(END, (locator.autolocation()))
@@ -142,7 +142,7 @@ option = StringVar(app)
 option.set("per minute")
 drop_down_menu = OptionMenu(
     app, option, 'per minute', 'per 5 minutes', 'per 10 minutes', command = dropdown)
-drop_down_menu.place(x=590, y=187)
+drop_down_menu.place(x=560, y=187)
 
 
 interval_timer = RepeatedTimer(1.0, setcolorful)
@@ -161,7 +161,7 @@ def on_closing():
 
 
 def toAdapt():
-    stop_button.place(x=700, y=275)
+    stop_button.place(x=550, y=275)
     interval_timer.start()
     refresh_timer.start()
 
@@ -177,11 +177,11 @@ def toStop():
 
 
 header_label = Label(app, text='Adaptive', font=(
-    'Comic Sans MS', 28), fg='#0088ff')
-header_label.place(relx=.38, rely=.02)
+    'Lilita One', 28), fg='#0088ff')
+header_label.pack(anchor='center', pady= 25)
 logo = ImageTk.PhotoImage(Image.open(r'Images\favicon-32x32.png'))
 logo_label = Label(image=logo)
-logo_label.place(relx=.58, rely=.038)
+logo_label.place(relx=.60, rely=.038)
 
 
 # user city input
@@ -189,27 +189,27 @@ logo_label.place(relx=.58, rely=.038)
 
 city_label = Label(
     app, text='Input your city here:', font=('Robot', 14))
-city_label.place(x=300, y=150)
+city_label.place(x=50 , y=120)
 city_text = StringVar()
 city_input = Entry(app, textvariable=city_text)
-city_input.place(x=520, y=155)
+city_input.place(x=230, y=125)
 city_button = Button(app, text='Add', command=weather_now,
                      fg='white', bg='#428bca', width=10, borderwidth=0)
-city_button.place(x=650, y=155)
-city_output = Label(app, text='', font=('Consolas', 12))
-city_output.place(x=80, y=280)
+city_button.place(x=360, y=125)
+city_output = Label(app, text='', font=('Open Sans', 12))
+city_output.place(x=60, y=280)
 
 # how fast wallpaper is going to change
 
 time_label = Label(
     app, text='How fast do you want to change your wallpaper: 1 change', font=('Robot', 14))
-time_label.place(x=100, y=190)
+time_label.place(x=50, y=190)
 
 
 # adaptive button
 
 adapt_button = Button(app, text='Adapt', command=toAdapt, fg='white',
-                      bg='#428bca', width=5, font=('Consolas', 12), borderwidth=0)
+                      bg='#428bca', width=8, height = 2, font=('Open Sans', 10), borderwidth=0)
 # city_lists
 
 parts_list = Listbox(app, height=15, width=120)
@@ -219,18 +219,18 @@ parts_list.bind("<<ListboxSelect>>", select_city)
 # remove button
 
 remove_button = Button(app, text='Remove', command=remove_city,
-                       height=2, width=8, bg='#d9534f', fg='white', borderwidth=0)
-remove_button.place(x=690, y=535)
+                       height=2, width=8, bg='#d9534f', fg='white', borderwidth=0, font =('Open Sans', 10))
+remove_button.place(x=693, y=530)
 
 # stop button
 
 stop_button = Button(app, text='Stop', command=toStop, borderwidth=0,
-                     bg='#d9534f', fg='white', width=5, font=('Consolas', 12))
+                     bg='#d9534f', fg='white', width=8,height =2, font=('Open Sans', 10))
 
 #Autodetection
 
-detect_button = Button(app, text = 'AUTODETECTION', command = autoLocate, borderwidth = 0, fg = 'white', bg = '#232020', width=15,height = 3, font = ('Consolas', 14))
-detect_button.place(x=340, y=580)
+detect_button = Button(app, text = 'AUTODETECTION', command = autoLocate, borderwidth = 0, fg = 'white', bg = '#232020', width=14,height = 2, font = ('Open Sans', 12))
+detect_button.place(x=550, y=110)
 
 
 # My personalities
